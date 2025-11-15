@@ -176,13 +176,40 @@ int main()
   // order1.orderType = OrderBookType::ask;
 
   orders.push_back(OrderBookEntry{ 10000, 0.02, "2020/03/18 16:01:24.884492", "BTC/USDT", OrderBookType::bid });
-  orders.push_back(OrderBookEntry{ 20000, 0.025, "2020/03/18 16:01:24.884492", "BTC/USDT", OrderBookType::bid });
+  orders.push_back(OrderBookEntry{ 20000, 0.030, "2020/03/19 17:02:24.884492", "BTC/USDT", OrderBookType::ask });
+  orders.push_back(OrderBookEntry{ 30000, 0.040, "2020/03/20 18:03:24.884492", "BTC/USDT", OrderBookType::bid });
 
-  std::cout << "The price of order1 is " << orders[0].price << std::endl;
-  std::cout << "The amount of order2 is " << orders[1].amount << std::endl;
-  std::cout << "The timestamp of order1 is " << orders[0].timestamp << std::endl;
-  std::cout << "The product of order1 is " << orders[0].product << std::endl;
-  std::cout << "The order type of order1 is " << orders[0].orderType << std::endl;
+
+  // // 1st method of iterating over a vector
+  // for (OrderBookEntry& order : orders)
+  // {
+  //   std::cout << "The price of order is " << order.price << std::endl;
+  //   std::cout << "The amount of order is " << order.amount << std::endl;
+  //   std::cout << "The timestamp of order is " << order.timestamp << std::endl;
+  //   std::cout << "The product of order is " << order.product << std::endl;
+  //   std::cout << "The order type of order is " << order.orderType << std::endl;
+  // }
+
+  // // 2nd method of iterating over a vector: using an array style loop
+  // for (unsigned int i = 0; i < orders.size(); ++i)
+  // {
+  //   std::cout << "The price of order no " << i + 1 << " is " << orders[i].price << std::endl;
+  //   std::cout << "The amount of order no " << i + 1 << " is " << orders[i].amount << std::endl;
+  //   std::cout << "The timestamp of order no " << i + 1 << " is " << orders[i].timestamp << std::endl;
+  //   std::cout << "The product of order no " << i + 1 << " is " << orders[i].product << std::endl;
+  //   std::cout << "The order type of order no " << i + 1 << " is " << orders[i].orderType << std::endl;
+  // }
+
+  // 3rd method of iterating over a vector: using an object style syntax
+  for (unsigned int i = 0; i < orders.size(); ++i)
+  {
+    std::cout << "The price of order no " << i + 1 << " is " << orders.at(i).price << std::endl;
+    std::cout << "The amount of order no " << i + 1 << " is " << orders.at(i).amount << std::endl;
+    std::cout << "The timestamp of order no " << i + 1 << " is " << orders.at(i).timestamp << std::endl;
+    std::cout << "The product of order no " << i + 1 << " is " << orders.at(i).product << std::endl;
+    std::cout << "The order type of order no " << i + 1 << " is " << orders.at(i).orderType << std::endl;
+  }
+
 
 }
 
