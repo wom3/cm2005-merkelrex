@@ -5,6 +5,7 @@ class MerkelMain
 public:
   MerkelMain();
   void init();
+private:
   void printMenu();
   void printHelp();
   void  printMarketStats();
