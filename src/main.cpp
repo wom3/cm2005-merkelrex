@@ -18,6 +18,21 @@ std::ostream& operator<<(std::ostream& os, const OrderBookType& t) {
 class OrderBookEntry
 {
 public:
+
+  OrderBookEntry(
+    double price,
+    double amount,
+    std::string timestamp,
+    std::string product,
+    OrderBookType orderType
+  )
+  {
+    this->price = price;
+    this->amount = amount;
+    this->timestamp = timestamp;
+    this->product = product;
+    this->orderType = orderType;
+  }
   double price;
   double amount;
   std::string timestamp;
@@ -159,12 +174,12 @@ int main()
 
 
 
-  OrderBookEntry order1;
-  order1.price = 10000;
-  order1.amount = 0.002;
-  order1.timestamp = "2020/03/18 16:01:24.884492";
-  order1.product = "BTC/USDT";
-  order1.orderType = OrderBookType::ask;
+  OrderBookEntry order1{ 10000, 0.02, "2020/03/18 16:01:24.884492", "BTC/USDT", OrderBookType::bid };
+  // order1.price = 10000;
+  // order1.amount = 0.002;
+  // order1.timestamp = "2020/03/18 16:01:24.884492";
+  // order1.product = "BTC/USDT";
+  // order1.orderType = OrderBookType::ask;
 
   std::cout << "The price of order1 is " << order1.price << std::endl;
   std::cout << "The amount of order1 is " << order1.amount << std::endl;
