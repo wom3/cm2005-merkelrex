@@ -167,20 +167,22 @@ int main()
   // }
   // return 0;
 
+  std::vector<OrderBookEntry> orders;
 
-
-  OrderBookEntry order1{ 10000, 0.02, "2020/03/18 16:01:24.884492", "BTC/USDT", OrderBookType::bid };
   // order1.price = 10000;
   // order1.amount = 0.002;
   // order1.timestamp = "2020/03/18 16:01:24.884492";
   // order1.product = "BTC/USDT";
   // order1.orderType = OrderBookType::ask;
 
-  std::cout << "The price of order1 is " << order1.price << std::endl;
-  std::cout << "The amount of order1 is " << order1.amount << std::endl;
-  std::cout << "The timestamp of order1 is " << order1.timestamp << std::endl;
-  std::cout << "The product of order1 is " << order1.product << std::endl;
-  std::cout << "The order type of order1 is " << order1.orderType << std::endl;
+  orders.push_back(OrderBookEntry{ 10000, 0.02, "2020/03/18 16:01:24.884492", "BTC/USDT", OrderBookType::bid });
+  orders.push_back(OrderBookEntry{ 20000, 0.025, "2020/03/18 16:01:24.884492", "BTC/USDT", OrderBookType::bid });
+
+  std::cout << "The price of order1 is " << orders[0].price << std::endl;
+  std::cout << "The amount of order2 is " << orders[1].amount << std::endl;
+  std::cout << "The timestamp of order1 is " << orders[0].timestamp << std::endl;
+  std::cout << "The product of order1 is " << orders[0].product << std::endl;
+  std::cout << "The order type of order1 is " << orders[0].orderType << std::endl;
 
 }
 
